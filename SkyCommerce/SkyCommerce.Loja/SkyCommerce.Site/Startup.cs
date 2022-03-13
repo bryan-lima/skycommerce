@@ -43,8 +43,8 @@ namespace SkyCommerce.Site
                 {
                     options.Authority = "https://localhost:5001";
 
-                    options.ClientId = "715000d0c10040258c1be259c09e3b91";
-                    options.ClientSecret = "360ceac2e80545dca6083fef4f94d09f";
+                    options.ClientId = "33ac6cd0dfe14434ab301687bd635749";
+                    options.ClientSecret = "311dd96a325046a08bd0312e555649d6";
                     options.ResponseType = "code";
                     options.Scope.Add("openid");
                     options.Scope.Add("profile");
