@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace SkyCommerce.Fretes.Controllers
 {
     [ApiController]
-    [Route("fretes"), Authorize]
+    [Route("fretes")]
     public class FreteController : ControllerBase
     {
         private readonly ILogger<FreteController> _logger;
@@ -32,7 +32,7 @@ namespace SkyCommerce.Fretes.Controllers
             return Ok(await _context.Fretes.Where(w => w.Ativo).Select(s => s.ToViewModel()).ToListAsync());
         }
 
-        [HttpGet("para/{lat},{lon}/calcular")]
+        [HttpGet("para/{lat},{lon}/calcular"), Authorize]
         public async Task<ActionResult<IEnumerable<CalculoFreteViewModel>>> Calcular(double lat, double lon, [FromQuery] EmbalagemViewModel embalagem)
         {
             _logger.LogInformation($"Calculando frete para {lat},{lon}");

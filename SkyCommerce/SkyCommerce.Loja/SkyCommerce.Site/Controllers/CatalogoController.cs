@@ -42,12 +42,10 @@ namespace SkyCommerce.Site.Controllers
         [Route("{produto}")]
         public async Task<IActionResult> Detalhes(string produto)
         {
-            var posicaoDoGuerreiro = await _geoposicaoService.GeolocalizarUsuario();
-
             var produtoDetails = await _produtoStore.ObterPorNome(produto);
             var produtosRelacionados = await _produtoStore.ObterPorCategoria(produtoDetails.Categorias.FirstOrDefault());
 
-            var frete = await _freteService.ObterModalidades(posicaoDoGuerreiro);
+            var frete = await _freteService.ObterModalidades();
 
             return View(new ProdutoDetalhesViewModel()
             {

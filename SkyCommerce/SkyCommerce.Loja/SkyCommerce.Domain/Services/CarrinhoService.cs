@@ -59,10 +59,10 @@ namespace SkyCommerce.Services
             }
         }
 
-        public async Task SelecionarFrete(string usuario, string modalidade, GeoCoordinate geolocalizarUsuario)
+        public async Task SelecionarFrete(string usuario, string modalidade, GeoCoordinate geolocalizarUsuario, string token)
         {
             var carrinho = await _carrinhoStore.ObterCarrinho(usuario);
-            var fretes = await _freteService.CalcularCarrinho(carrinho, geolocalizarUsuario);
+            var fretes = await _freteService.CalcularCarrinho(carrinho, geolocalizarUsuario, $"Bearer {token}");
             carrinho.SelecionarFrete(fretes.FirstOrDefault(f => f.Modalidade.Equals(modalidade)));
             await _carrinhoStore.AtualizarCarrinho(carrinho);
         }

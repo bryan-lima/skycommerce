@@ -9,7 +9,7 @@ namespace SkyCommerce.Interfaces
         Task Remover(string produto, string user);
         Task AplicarCupom(string cupom, string user);
         Task AtualizarQuantidadeProduto(string usuario, string produto, int quantidade);
-        Task SelecionarFrete(string usuario, string modalidade, GeoCoordinate geolocalizarUsuario);
+        Task SelecionarFrete(string usuario, string modalidade, GeoCoordinate geolocalizarUsuario, string token);
         Task LimparCarrinho(string usuario);
     }
 }
