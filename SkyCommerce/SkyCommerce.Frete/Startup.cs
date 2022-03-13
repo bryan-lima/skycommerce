@@ -23,6 +23,11 @@ namespace SkyCommerce.Fretes
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddAuthentication("Bearer").AddJwtBearer(options => 
+            {
+                options.Authority = "https://localhost:5001";
+                options.Audience = "api_frete";
+            });
             services.AddDbContext<FreteContext>(options => options.UseInMemoryDatabase("frete-context"));
 
             services.AddSwaggerGen(c =>
@@ -50,6 +55,7 @@ namespace SkyCommerce.Fretes
             });
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
