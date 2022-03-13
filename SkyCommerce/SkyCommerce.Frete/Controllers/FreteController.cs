@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using SkyCommerce.Fretes.Context;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 namespace SkyCommerce.Fretes.Controllers
 {
     [ApiController]
-    [Route("fretes")]
+    [Route("fretes"), Authorize]
     public class FreteController : ControllerBase
     {
         private readonly ILogger<FreteController> _logger;
