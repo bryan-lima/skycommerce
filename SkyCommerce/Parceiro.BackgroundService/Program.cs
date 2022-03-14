@@ -23,8 +23,8 @@ namespace Parceiro.BackgroundService
             var tokenResponse = await client.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
             {
                 Address = disco.TokenEndpoint,
-                ClientId = "98161f30bdc047dba95b69f5d46dadbf",
-                ClientSecret = "5b1065ab86fb44e0b08f2e639e2025bc",
+                ClientId = "2e01cc9721834691947bafd17630f323",
+                ClientSecret = "ec3d8b50addc44dda9ee34657e5a1e3c",
                 Scope = "api_frete.read_only"
             });
 
